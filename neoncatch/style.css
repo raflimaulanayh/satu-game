@@ -1,0 +1,242 @@
+/* --- VOID AESTHETIC STYLES --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: crosshair;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- UI FIX FOR MOBILE --- */
+#ui {
+    position: absolute;
+    top: 15px;
+    /* Moved up slightly */
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    /* Spreads items out */
+    align-items: center;
+    padding: 0 10px;
+    /* Reduced side padding */
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.hud-box {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid #0ff;
+    padding: 8px 12px;
+    /* Reduced padding */
+    border-radius: 15px;
+    backdrop-filter: blur(4px);
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 10px #0ff;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    font-size: 1rem;
+    /* Default size */
+    white-space: nowrap;
+    /* Prevents text breaking */
+}
+
+/* Mobile specific adjustments for UI fitting */
+@media (max-width: 450px) {
+    .hud-box {
+        font-size: 0.8rem;
+        /* Smaller text on phone */
+        padding: 6px 8px;
+        min-width: auto;
+        border-radius: 10px;
+    }
+
+    #ui {
+        gap: 5px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Smaller title on mobile */
+    .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
+#damage-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, rgba(255, 0, 85, 0.5) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s;
+    z-index: 5;
+}
+
+#start-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 5, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    color: #0ff;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 25px #0ff;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+p {
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 5px 0;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    color: #050505;
+    border: none;
+    border-radius: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transition: transform 0.1s, box-shadow 0.2s;
+    font-family: inherit;
+}
+
+.btn-easy {
+    background: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.btn-easy:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.8);
+}
+
+.btn-normal {
+    background: #0ff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.btn-normal:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+}
+
+.btn-hard {
+    background: #ff0055;
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+}
+
+.btn-hard:hover {
+    box-shadow: 0 0 30px rgba(255, 0, 85, 0.8);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.highlight {
+    color: #ff0055;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff0055;
+}
+
+.stats {
+    margin-top: 20px;
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Volume Toggle */
+#mute-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #555;
+    color: #555;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 30;
+    font-family: inherit;
+    font-size: 0.75rem;
+    transition: all 0.3s;
+}
+
+#mute-btn.active {
+    border-color: #0ff;
+    color: #0ff;
+    text-shadow: 0 0 8px #0ff;
+}
+
+#back-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #555;
+    color: #555;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 30;
+    font-family: inherit;
+    font-size: 0.75rem;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#back-btn:hover {
+    border-color: #0ff;
+    color: #0ff;
+    text-shadow: 0 0 8px #0ff;
+}

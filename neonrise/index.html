@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Neon Rise: Ultimate Edition</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="ui">
+        <div class="hud-group">
+            <div class="hud-box">SCORE: <span id="score">0</span></div>
+        </div>
+
+        <div id="menu-btn">⋮</div>
+
+        <div class="hud-group right">
+            <div class="hud-box hud-best">BEST: <span id="best-score">0</span></div>
+        </div>
+    </div>
+
+    <div id="active-effects"></div>
+
+    <button id="mute-btn" class="active">AUDIO: ON</button>
+    <a id="back-btn" href="../index.html">BACK</a>
+
+    <div id="touch-zones">
+        <div class="zone" id="zone-left"></div>
+        <div class="zone" id="zone-right"></div>
+    </div>
+
+    <div id="pause-menu">
+        <h2>PAUSED</h2>
+        <div class="btn-container" style="flex-direction:column;">
+            <button class="btn btn-normal" id="btn-resume">RESUME</button>
+            <button class="btn btn-hard" id="btn-quit">QUIT</button>
+        </div>
+    </div>
+
+    <div id="game-over-screen">
+        <h1 style="color:#ff0055; text-shadow: 0 0 30px #ff0055;">FALLEN</h1>
+        <p id="final-score-display">SCORE: 0</p>
+        <div class="btn-container">
+            <button class="btn btn-normal" id="btn-restart">TRY AGAIN</button>
+            <button class="btn btn-hard" id="btn-menu">MENU</button>
+        </div>
+    </div>
+
+    <div id="start-screen">
+        <h1 style="color:#ffee00; text-shadow:0 0 25px #ffee00;">SEMESTER CLIMBER</h1>
+        <p>TAP TO JUMP. AVOID OBSTACLES.</p>
+        <p style="font-size:0.8rem; margin-top:-20px; color:#ff9900;">REACH THE HIGHEST SEMESTER!</p>
+
+        <div class="btn-container">
+            <button id="start-btn" class="btn"
+                style="background:#ffee00; box-shadow:0 0 20px rgba(255, 238, 0, 0.4);">START CLIMB</button>
+        </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

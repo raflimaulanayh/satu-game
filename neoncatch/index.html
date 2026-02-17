@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Neon Catcher: Void Edition</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="damage-overlay"></div>
+
+    <div id="ui">
+        <div class="hud-box">SCORE: <span id="score">0</span></div>
+        <div class="hud-box" style="color: #ff0055; text-shadow: 0 0 10px #ff0055;" id="lives-box">❤❤❤</div>
+        <div class="hud-box">BEST: <span id="high-score">0</span></div>
+    </div>
+
+    <button id="mute-btn" class="active">AUDIO: ON</button>
+    <a id="back-btn" href="../index.html">BACK</a>
+
+    <div id="start-screen">
+        <h1 style="color:#ff3333; text-shadow:0 0 25px #ff3333;">SAT PT CATCHER</h1>
+        <p>TAP <span class="highlight" style="color:#ff9900;">LEFT / RIGHT</span> TO MOVE.</p>
+        <div class="stats">HIGH SCORE: <span id="menu-highscore">0</span></div>
+
+        <div class="btn-container">
+            <button class="btn btn-easy" id="btn-easy"
+                style="background:#00ff88; box-shadow:0 0 15px #00ff88;">EASY</button>
+            <button class="btn btn-normal" id="btn-normal"
+                style="background:#0088ff; box-shadow:0 0 15px #0088ff;">NORMAL</button>
+            <button class="btn btn-hard" id="btn-hard"
+                style="background:#ff3333; box-shadow:0 0 15px #ff3333; color:white;">HARD</button>
+        </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

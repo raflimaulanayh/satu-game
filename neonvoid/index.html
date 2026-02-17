@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Neon Void: Audio Enhanced</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="ui">
+        <div class="hud-box">SCORE: <span id="score">0</span></div>
+        <div class="hud-box">BEST: <span id="high-score">0</span></div>
+    </div>
+
+    <button id="mute-btn">SOUND: ON</button>
+    <a id="back-btn" href="../index.html">BACK</a>
+
+    <div id="start-screen">
+        <h1 style="color:#ffffff; text-shadow:0 0 25px #ffffff;">NETWORK LINKER</h1>
+        <p>TAP <span class="highlight" style="color:#ff3333;">ON NODES</span> TO CONNECT.</p>
+        <div class="stats">HIGH SCORE: <span id="menu-highscore">0</span></div>
+
+        <div class="btn-container">
+            <button class="btn btn-normal" id="btn-normal"
+                style="background:#ffffff; color:#000; box-shadow:0 0 20px rgba(255,255,255,0.6);">NORMAL</button>
+            <button class="btn btn-hard" id="btn-hard"
+                style="background:#ff3333; color:white; box-shadow:0 0 20px rgba(255,51,51,0.6);">HARD</button>
+        </div>
+
+        <p style="font-size: 0.8rem; margin-top: 20px; color: #555;">
+            HARD MODE: Deadly Walls & Weak Grapple
+        </p>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
