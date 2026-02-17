@@ -1,0 +1,436 @@
+/* --- VARIABLES & CORE --- */
+:root {
+    /* BINUS COLOR PALETTE (NEONIFIED) */
+    --binus-red: #ff3333;
+    /* Primary: Passion/Spirit */
+    --binus-orange: #ff9900;
+    /* Secondary: Innovation/Excellence */
+    --binus-maroon: #800000;
+    /* Core Identity */
+    --bee-yellow: #ffee00;
+    /* Mascot Tribute */
+    --tech-blue: #0088ff;
+    /* Computer Science */
+
+    --bg-color: #050000;
+    /* Deep Black/Red tint */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    /* Return to Repo Font */
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+    color: #fff;
+    height: 100vh;
+    width: 100vw;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+/* --- CRT SCANLINES (RESTORED) --- */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.15;
+    /* Subtler */
+}
+
+/* --- BACKGROUND CANVAS --- */
+#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* --- SYSTEM INIT SCREEN --- */
+#init-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    cursor: pointer;
+    transition: opacity 0.5s;
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+    color: var(--binus-red);
+    text-shadow: 0 0 10px var(--binus-red);
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* --- MAIN UI CONTAINER --- */
+.container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+.panel {
+    background: rgba(20, 5, 5, 0.9);
+    /* Dark Red Tint */
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 51, 51, 0.4);
+    padding: 40px;
+    border-radius: 8px;
+    /* Slightly more rounded */
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.1), inset 0 0 40px rgba(0, 0, 0, 0.9);
+    width: 90%;
+    max-width: 450px;
+    pointer-events: auto;
+    transform: perspective(1000px) rotateX(0deg);
+    transition: transform 0.1s;
+    position: relative;
+}
+
+/* Decorative Corners (Orange Accents) */
+.corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid var(--binus-orange);
+    transition: all 0.3s;
+}
+
+.tl {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.tr {
+    top: -2px;
+    right: -2px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bl {
+    bottom: -2px;
+    left: -2px;
+    border-right: none;
+    border-top: none;
+}
+
+.br {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+}
+
+.panel:hover .corner {
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 15px var(--binus-orange);
+}
+
+/* --- TYPOGRAPHY --- */
+h1 {
+    color: var(--binus-red);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 0 0 5px 0;
+    text-shadow: 0 0 20px var(--binus-red);
+    position: relative;
+}
+
+.uni-subtitle {
+    text-align: center;
+    color: #ddd;
+    font-size: 0.75rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.uni-subtitle span {
+    color: var(--binus-orange);
+}
+
+h1:hover {
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* --- BUTTONS (UPDATED COLORS) --- */
+.game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.game-btn {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #444;
+    border-left: 4px solid #fff;
+    padding: 15px 20px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Scanline wipe effect */
+.game-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.game-btn:hover::before {
+    left: 100%;
+}
+
+/* Themed Colors for Buttons - BINUS Values */
+
+/* BINUS RED - Spirit/Identity */
+.btn-core {
+    border-left-color: var(--binus-red);
+}
+
+.btn-core:hover {
+    background: rgba(255, 51, 51, 0.15);
+    border-color: var(--binus-red);
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.4);
+    text-shadow: 0 0 8px var(--binus-red);
+}
+
+/* BINUS ORANGE - Innovation */
+.btn-breaker {
+    border-left-color: var(--binus-orange);
+}
+
+.btn-breaker:hover {
+    background: rgba(255, 153, 0, 0.15);
+    border-color: var(--binus-orange);
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.4);
+    text-shadow: 0 0 8px var(--binus-orange);
+}
+
+/* BEE YELLOW - Mascot/Energy */
+.btn-rise {
+    border-left-color: var(--bee-yellow);
+}
+
+.btn-rise:hover {
+    background: rgba(255, 238, 0, 0.15);
+    border-color: var(--bee-yellow);
+    box-shadow: 0 0 20px rgba(255, 238, 0, 0.4);
+    text-shadow: 0 0 8px var(--bee-yellow);
+}
+
+/* TECH BLUE - Computer Science */
+.btn-catch {
+    border-left-color: var(--tech-blue);
+}
+
+.btn-catch:hover {
+    background: rgba(0, 136, 255, 0.15);
+    border-color: var(--tech-blue);
+    box-shadow: 0 0 20px rgba(0, 136, 255, 0.4);
+    text-shadow: 0 0 8px var(--tech-blue);
+}
+
+/* WHITE/GREY - Excellence/Base */
+.btn-void {
+    border-left-color: #fff;
+}
+
+.btn-void:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 8px #fff;
+}
+
+/* NEON MATCH - Future Path (Purple/Pink) */
+.btn-match {
+    border-left-color: #d000ff;
+}
+
+.btn-match:hover {
+    background: rgba(208, 0, 255, 0.15);
+    border-color: #d000ff;
+    box-shadow: 0 0 20px rgba(208, 0, 255, 0.4);
+    text-shadow: 0 0 8px #d000ff;
+}
+
+.game-btn:active {
+    transform: scale(0.98);
+}
+
+.arrow {
+    font-size: 0.8em;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.2s;
+}
+
+.game-btn:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- FOOTER --- */
+footer {
+    margin-top: 30px;
+    font-size: 0.7rem;
+    color: #666;
+    text-align: center;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+    width: 100%;
+    letter-spacing: 1px;
+}
+
+/* --- DECORATIVE HUD ELEMENTS --- */
+.hud-text {
+    position: absolute;
+    font-size: 10px;
+    color: rgba(255, 51, 51, 0.4);
+    /* Red HUD */
+    pointer-events: none;
+    z-index: 5;
+}
+
+.h-tl {
+    top: 20px;
+    left: 20px;
+}
+
+.h-tr {
+    top: 60px;
+    right: 20px;
+    text-align: right;
+}
+
+.h-bl {
+    bottom: 20px;
+    left: 20px;
+}
+
+.h-br {
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+/* --- AUDIO TOGGLE --- */
+#mute-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #333;
+    color: #888;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 100;
+    text-transform: uppercase;
+    font-family: inherit;
+}
+
+#mute-toggle.active {
+    color: var(--binus-red);
+    border-color: var(--binus-red);
+    text-shadow: 0 0 5px var(--binus-red);
+}
+
+@media (max-width: 450px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .panel {
+        padding: 30px 20px;
+    }
+
+    .game-btn {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+}

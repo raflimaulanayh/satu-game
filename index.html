@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SATU GAMES | SPIRIT OF EXCELLENCE</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="scanlines"></div>
+    <canvas id="bgCanvas"></canvas>
+
+    <div id="init-screen">
+        <h2 style="color:#f33; text-shadow:0 0 20px #f00; font-size:2rem; margin-bottom:10px;">SATU UNIVERSITY GAMES
+        </h2>
+        <div class="blink">[ CLICK OR TAP TO START EXCELLENCE ]</div>
+        <div style="margin-top:20px; font-size:0.8rem; color:#555;">EDUCATION // INNOVATION // SYSTEMS</div>
+    </div>
+
+    <button id="mute-toggle" class="active">AUDIO: ON</button>
+
+    <div class="hud-text h-tl">SATU_OS_V4.0<br>CAMPUS_ID: ALSUT</div>
+    <div class="hud-text h-tr">NET: CONNECTED<br>FPS: <span id="fps-counter">60</span></div>
+    <div class="hud-text h-bl">COORD: <span id="coord-display">000:000</span></div>
+    <div class="hud-text h-br">STATUS: EMPOWERING<br>SOCIETY</div>
+
+    <div class="container">
+        <div class="panel">
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+
+            <h1>SATU GAMES</h1>
+            <div class="uni-subtitle">PEOPLE. <span>INNOVATION</span>. EXCELLENCE.</div>
+
+            <div class="game-list">
+                <a href="./neoncore" class="game-btn btn-core" data-sound="core">
+                    <span>GPA GUARDIAN</span> <span class="arrow">>>></span>
+                </a>
+                <a href="./neonbreaker" class="game-btn btn-breaker" data-sound="breaker">
+                    <span>DEADLINE BREAKER</span> <span class="arrow">>>></span>
+                </a>
+                <a href="./neonrise" class="game-btn btn-rise" data-sound="rise">
+                    <span>SEMESTER CLIMBER</span> <span class="arrow">>>></span>
+                </a>
+                <a href="./neoncatch" class="game-btn btn-catch" data-sound="catch">
+                    <span>SAT PT CATCHER</span> <span class="arrow">>>></span>
+                </a>
+                <a href="./neonvoid" class="game-btn btn-void" data-sound="void">
+                    <span>NETWORK LINKER</span> <span class="arrow">>>></span>
+                </a>
+                <a href="./neonmatch" class="game-btn btn-match" data-sound="match">
+                    <span>MAJOR MATCH</span> <span class="arrow">>>></span>
+                </a>
+            </div>
+
+            <footer>
+                &copy; 2026 SATU UNIVERSITY GAMES.
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
