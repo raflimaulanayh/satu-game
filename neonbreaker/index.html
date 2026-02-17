@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Neon Breaker: Sandbox + Stable</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="init-overlay">
+        <div>
+            <h1>SYSTEM START</h1>
+            <p style="animation: blink 1s infinite">CLICK TO INITIALIZE</p>
+        </div>
+    </div>
+
+    <div id="ui">
+        <div class="hud-group">
+            <div class="hud-box">SCORE: <span id="score">0</span></div>
+            <div class="hud-box hud-level">LEVEL: <span id="level-num">1</span></div>
+        </div>
+
+        <div id="menu-btn">⋮</div>
+
+        <div class="hud-group right">
+            <div class="hud-box hud-lives">LIVES: <span id="lives">3</span></div>
+            <div class="hud-box hud-best">BEST: <span id="best-score">0</span></div>
+        </div>
+    </div>
+
+    <div id="msg-overlay">LEVEL CLEARED</div>
+    <button id="mute-btn" class="active">AUDIO: ON</button>
+    <a id="back-btn" href="../index.html">BACK</a>
+
+    <div id="pause-menu">
+        <h2>PAUSED</h2>
+        <div class="btn-container" style="flex-direction:column;">
+            <button class="btn btn-normal" id="btn-resume">RESUME</button>
+            <button class="btn btn-hard" id="btn-quit">QUIT</button>
+        </div>
+    </div>
+
+    <div id="sandbox-menu">
+        <h2 style="color:#a020f0; text-shadow:0 0 15px #a020f0; margin-bottom:20px;">SANDBOX CONFIG</h2>
+
+        <div class="sb-row">
+            <label>PADDLE WIDTH</label>
+            <input type="range" id="sb-width" min="50" max="600" value="150">
+        </div>
+        <div class="sb-row">
+            <label>BALL SPEED</label>
+            <input type="range" id="sb-speed" min="2" max="25" value="8">
+        </div>
+        <div class="sb-row">
+            <label>BALL COUNT</label>
+            <input type="number" id="sb-count" min="1" max="50" value="1">
+        </div>
+        <div class="sb-row">
+            <label>ROWS</label>
+            <input type="range" id="sb-rows" min="1" max="15" value="5">
+        </div>
+        <div class="sb-row">
+            <label>CHAOS MODE (Spawn on Break)</label>
+            <input type="checkbox" id="sb-chaos">
+        </div>
+
+        <div class="btn-container">
+            <button class="btn" style="background:#a020f0; color:white;" id="btn-launch-sb">LAUNCH</button>
+            <button class="btn" style="background:#333; color:white;" id="btn-close-sb">BACK</button>
+        </div>
+    </div>
+
+    <div id="start-screen">
+        <h1 style="color:#ff9900; text-shadow:0 0 25px #ff9900;">DEADLINE BREAKER</h1>
+        <p>CLEAR ALL TASKS BEFORE TIME RUNS OUT</p>
+
+        <div class="btn-container">
+            <button id="btn-story" class="btn btn-normal"
+                style="background:#ff9900; box-shadow:0 0 15px rgba(255, 153, 0, 0.5);">CAMPAIGN</button>
+            <button id="btn-sandbox" class="btn btn-easy"
+                style="background:#00ff88; box-shadow:0 0 15px rgba(0, 255, 136, 0.5);">SANDBOX</button>
+        </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
