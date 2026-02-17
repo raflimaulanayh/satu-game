@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>TES MINAT BAKAT: SATU UNIVERSITY</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <div id="container">
+        <!-- START SCREEN -->
+        <div id="start-screen">
+            <h1>PANDUAN MASA DEPAN</h1>
+            <div class="subtitle">SATU UNIVERSITY PROGRAM FINDER</div>
+            <p>Temukan potensi terbaikmu dan jurusan yang paling sesuai dengan kepribadian serta minatmu melalui asesmen
+                interaktif ini.</p>
+            <button class="btn btn-start" onclick="startQuiz()">MULAI ASESMEN</button>
+        </div>
+
+        <!-- QUIZ SCREEN -->
+        <div id="quiz-screen" style="display: none;">
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <div class="question-counter" id="question-counter">PERTANYAAN 1/8</div>
+            <h2 id="question-text">Loading...</h2>
+            <div id="options-container"></div>
+        </div>
+
+        <!-- RESULT SCREEN -->
+        <div id="result-screen">
+            <div class="result-badge" id="result-faculty">FAKULTAS...</div>
+            <h2 style="margin:0; color:#888; font-size:1rem; letter-spacing:3px;">HASIL KECOCOKAN KAMU</h2>
+            <div class="major-result" id="result-major">INFORMATIKA</div>
+            <p class="description" id="result-desc">Deskripsi hasil akan muncul di sini.</p>
+            <button class="btn btn-start" onclick="location.reload()">COBA LAGI</button>
+            <a href="../index.html" class="btn-back"
+                style="position: relative; bottom: auto; left: auto; display: inline-flex; justify-content: center; width: auto; margin-top: 20px; border: 1px solid rgba(255,255,255,0.2);">KEMBALI
+                KE MENU UTAMA</a>
+        </div>
+    </div>
+
+    <button id="mute-btn">SOUND: ON</button>
+    <a id="back-btn" href="../index.html">BACK</a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
