@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Neon Core: Orbital Defense</title>
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="ui">
+        <div class="hud-col hud-left">
+            <div class="hud-box">SCORE: <span id="score">0</span></div>
+            <div id="powerup-list"></div>
+        </div>
+
+        <div class="hud-col hud-right">
+            <div class="status-header">
+                <div id="shield-counter" class="shield-badge">SHIELD x0</div>
+                <div class="hud-box status-label">CORE STATUS</div>
+            </div>
+            <div class="health-bar-container">
+                <div class="health-fill" id="core-health"></div>
+                <div class="shield-active-border" id="shield-ui"></div>
+            </div>
+            <div style="color:#888; font-size:0.8rem; margin-top:4px;" id="best-display">BEST: 0</div>
+        </div>
+    </div>
+
+    <button id="mute-btn" class="active">AUDIO: ON</button>
+    <a id="back-btn" href="../index.html">BACK</a>
+
+    <div id="start-screen">
+        <h1 style="color:#ff3333; text-shadow:0 0 25px #ff3333;">GPA GUARDIAN</h1>
+        <p>DEFEND YOUR CORE GPA FROM ASSIGNMENTS</p>
+        <div class="stats">HIGH SCORE: <span id="menu-highscore">0</span></div>
+
+        <div class="btn-container">
+            <button class="btn btn-easy" id="btn-easy"
+                style="background:#00ff88; box-shadow:0 0 15px rgba(0, 255, 136, 0.5);">NORMAL</button>
+            <button class="btn btn-hard" id="btn-hard"
+                style="background:#ff3333; color:white; box-shadow:0 0 15px rgba(255, 51, 51, 0.5);">EXAM MODE</button>
+        </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
