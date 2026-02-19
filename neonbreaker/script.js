@@ -278,22 +278,10 @@ document.getElementById('btn-quit').addEventListener('click', () => {
 });
 
 // --- BUTTONS ---
-function attachBtn(id, mode) {
-    const btn = document.getElementById(id);
-    const fn = (e) => { e.preventDefault(); e.stopPropagation(); startGame(mode); };
-    btn.addEventListener('click', fn); btn.addEventListener('touchstart', fn);
-}
-attachBtn('btn-easy', 'easy');
-attachBtn('btn-normal', 'normal');
-attachBtn('btn-hard', 'hard');
+// --- BUTTONS ---
+// The specific mode buttons (easy/normal/hard) are handled by btn-story and btn-sandbox logic above.
+// Previous attachBtn code was referencing non-existent IDs and causing a crash.
 
-// --- SANDBOX UI LOGIC ---
-// --- SANDBOX UI LOGIC (REMOVED REDUNDANT LISTENERS) ---
-// Listeners already attached in previous block (lines 582-598)
-// Keeping only input handling here
-
-// --- INPUT ---
-// --- INPUT ---
 // --- INPUT ---
 function updateInput(x) {
     // Store raw input
@@ -307,6 +295,17 @@ window.addEventListener('touchmove', e => {
     }
     updateInput(e.touches[0].clientX);
 }, { passive: false });
+
+// Add touchstart for immediate response on tap
+window.addEventListener('touchstart', e => {
+    if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A') {
+        if (isPlaying && !isPaused) {
+            e.preventDefault();
+        }
+        updateInput(e.touches[0].clientX);
+    }
+}, { passive: false });
+
 window.addEventListener('keydown', e => { if (e.code === 'ArrowLeft') keys.left = true; if (e.code === 'ArrowRight') keys.right = true; });
 window.addEventListener('keyup', e => { if (e.code === 'ArrowLeft') keys.left = false; if (e.code === 'ArrowRight') keys.right = false; });
 
